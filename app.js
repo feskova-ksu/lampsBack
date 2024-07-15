@@ -10,10 +10,11 @@ var indexRouter = require('./routes/index');
 var app = express();
 
 const PORT = process.env.PORT || 3030;
-app.listen(PORT, () => {
+var server =app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
 });
 
+server.timeout = 1000 * 60 * 5;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
