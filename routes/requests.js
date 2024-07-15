@@ -18,7 +18,12 @@ const DataModel = mongoose.model("Data", DataSchema);
 
 const sendObject = async (data) => {
   try {
-    await client.connect();
+    await client.connect( {
+      // retry to connect for 2 times
+      reconnectTries: 2,
+      // wait 1 second before retrying
+      reconnectInterval: 1000
+  });
     const newData = new DataModel(data);
     await client
       .db("Lamps")
@@ -37,7 +42,12 @@ const sendObject = async (data) => {
 
 const getLevel = async (data) => {
   try {
-    await client.connect();
+    await client.connect({
+        // retry to connect for 2 times
+        reconnectTries: 2,
+        // wait 1 second before retrying
+        reconnectInterval: 1000
+    });
     console.log("Query: "+data);
     const query = { numberId: data };
     responseData = await client.db("Lamps").collection("levels").findOne(query);
@@ -51,7 +61,10 @@ const getLevel = async (data) => {
 };
 const getMaxCount = async () => {
   try {
-    await client.connect();
+    await client.connect({  // retry to connect for 2 times
+      reconnectTries: 2,
+      // wait 1 second before retrying
+      reconnectInterval: 1000});
     let collectionSize = await client
       .db("Lamps")
       .collection("levels")
