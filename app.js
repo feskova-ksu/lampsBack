@@ -14,7 +14,7 @@ var server =app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
 });
 
-server.timeout = 1000 * 60 * 5;
+server.timeout = 1000 * 60 * 10;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
