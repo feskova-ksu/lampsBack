@@ -4,7 +4,7 @@ var router = express.Router();
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const { DataSchema } = require("./fetch");
 const uri =
-  "mongodb+srv://feskovaksu:Da4dqBv8HGU5YJQ3@lampscluster.fpqf2y9.mongodb.net/?retryWrites=true&w=majority&appName=LampsCluster";
+  "mongodb+srv://feskovaksu:DUNKPX9yDnKAiwQu@lampscluster.fpqf2y9.mongodb.net/?retryWrites=true&w=majority&appName=LampsCluster";
 
 const client = new MongoClient(uri, {
   serverApi: {
